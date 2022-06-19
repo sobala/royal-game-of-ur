@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'application'
+}
+
+javafx {
+    version = "18.0.1"
+    modules = [ 'javafx.controls' ]
+}
+
+group = 'com.game'
+version = '0.0.1-SNAPSHOT'
+mainClassName = 'com.game.royalgameofur.main.RoyalGameOfUrApplication'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            'org.hamcrest:hamcrest-library:2.2'
+    )
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
