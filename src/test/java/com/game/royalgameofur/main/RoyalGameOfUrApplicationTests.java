@@ -9,7 +9,7 @@ class DiceTestSuite {
     @Test
     void rollDiceTest() {
         //Given
-        Dice dice = Dice.INSTANCE;
+        Dice dice = new Dice();
         //When
         int result = dice.rollDice();
         //Then

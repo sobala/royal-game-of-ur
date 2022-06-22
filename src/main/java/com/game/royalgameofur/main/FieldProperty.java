@@ -1,4 +1,4 @@
 package com.game.royalgameofur.main;
 
-public class PhysicalPlayer {
+public interface FieldProperty {
 }

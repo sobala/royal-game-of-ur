@@ -1,24 +1,27 @@
 package com.game.royalgameofur.main;
 
-public class Piece {
+public class Piece implements FieldProperty {
 
-    private Field position;
+    private Field fieldPosition;
     private final Player player;
 
-    public Piece(Field position, final Player player) {
-        this.position = position;
+    public Piece(final Player player) {
+        this.fieldPosition = null;
         this.player = player;
     }
 
-    public Field getPosition() {
-        return position;
+    public Field getFieldPosition() {
+        return fieldPosition;
     }
 
-    public void setPosition(Field position) {
-        this.position = position;
+    public void setFieldPosition(Field field) {
+        this.fieldPosition = fieldPosition;
     }
 
     public Player getPlayer() {
         return player;
     }
+
+    //TODO: Implement piece check move function
+    public boolean canMove(){ return false; }
 }

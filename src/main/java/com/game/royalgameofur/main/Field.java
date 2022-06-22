@@ -1,32 +1,38 @@
 package com.game.royalgameofur.main;
 
-public final class Field {
+import java.util.HashMap;
+import java.util.Map;
 
-    private final char position;
-    private final int number;
-    private final boolean doubleRoll;
-    private final boolean unkillable;
+public class Field {
 
-    public Field(final char position, final int number, final boolean doubleRoll, final boolean unkillable) {
-        this.position = position;
-        this.number = number;
-        this.doubleRoll = doubleRoll;
-        this.unkillable = unkillable;
+    private final Map<String, FieldProperty> properties = new HashMap<>();
+
+    public Field(final FieldProperty fieldType) {
+        this.properties.put("fieldType", fieldType);
+        this.properties.put("occupiedByPiece", null);
     }
 
-    public char getPosition() {
-        return position;
+    public Map<String, FieldProperty> getProperties() {
+        return properties;
     }
 
-    public int getNumber() {
-        return number;
+    public FieldProperty getProperty(String propertyName) {
+        return properties.get(propertyName);
     }
 
-    public boolean isDoubleRoll() {
-        return doubleRoll;
+    //TODO: Change return statement
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Field field = (Field) o;
+
+        return this.properties.get("fieldSide").equals(field.properties.get("fieldSide"));
     }
 
-    public boolean isUnkillable() {
-        return unkillable;
+    @Override
+    public int hashCode() {
+        return properties != null ? properties.hashCode() : 0;
     }
 }
